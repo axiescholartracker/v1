@@ -1,0 +1,35 @@
+import Box from '@mui/material/Box';
+
+import NavBar from './NavBar';
+
+import axieLogo from '../assets/images/axie_logo.png';
+import background from '../assets/images/background.jpg';
+
+function Header() {
+	return (
+		<Box
+			sx={{
+				// backgroundImage: `url(${background})`,
+				backgroundPosition: 'center',
+				backgroundColor: '#1976D2',
+				backgroundImage: `linear-gradient(rgba(21, 101, 192, 0.8),rgba(21, 101, 192, 0.95)),url(${background})`, // TODO: Replace with local file
+			}}
+		>
+			<NavBar />
+			<Box
+				sx={{
+					height: '200px',
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+					mb: 2,
+				}}
+			>
+				<img src={axieLogo} alt="axie logo" style={{ height: '100px', marginBottom: '16px' }} />
+			</Box>
+		</Box>
+	);
+}
+
+export default Header;
