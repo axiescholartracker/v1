@@ -629,7 +629,7 @@ function App() {
 					</Box>
 				)}
 			</Container>
-			<Footer />
+			{/* <Footer /> */}
 		</Box>
 	);
 }
