@@ -139,7 +139,6 @@ function App() {
 							return {
 								last_updated: processDate(dataItem.cache_last_updated),
 								name: localData[index].name,
-
 								ronin_address: localData[index].ronin_address,
 								average_slp: calculateAverageSlp(
 									dataItem.in_game_slp,
@@ -229,7 +228,7 @@ function App() {
 					}
 				} else {
 					alert(
-						'Incompamtible JSON structure.\n\nOnly exported JSON from this site and https://axie-scho-tracker.xyz/ are accepted at the moment.\n\nSupport for other trackers will be added in the future.'
+						'Incompatible JSON structure.\n\nOnly exported JSON from this site and https://axie-scho-tracker.xyz/ are accepted at the moment.\n\nSupport for other trackers will be added in the future.'
 					);
 				}
 			};

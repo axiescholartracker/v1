@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,7 +13,6 @@ function BasicCard(props) {
 
 	return (
 		<Card
-			// variant="outlined"
 			elevation={0}
 			sx={{
 				display: 'flex',
@@ -36,10 +33,7 @@ function BasicCard(props) {
 						{addCommaToNumber(slp)}
 					</Typography>
 				</Box>
-				<Typography
-					sx={{ fontSize: 14, fontWeight: 'bold', textAlign: 'center' }}
-					// color="text.secondary"
-				>
+				<Typography sx={{ fontSize: 14, fontWeight: 'bold', textAlign: 'center' }}>
 					{label}
 				</Typography>
 				<Typography sx={{ fontSize: 14, textAlign: 'center' }} color="text.secondary">

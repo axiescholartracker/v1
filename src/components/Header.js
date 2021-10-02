@@ -11,7 +11,7 @@ function Header() {
 			sx={{
 				backgroundPosition: 'center',
 				backgroundColor: '#1976D2',
-				backgroundImage: `linear-gradient(rgba(21, 101, 192, 0.8),rgba(21, 101, 192, 0.95)),url(${background})`, // TODO: Replace with local file
+				backgroundImage: `linear-gradient(rgba(21, 101, 192, 0.8),rgba(21, 101, 192, 0.95)),url(${background})`,
 			}}
 		>
 			<NavBar />

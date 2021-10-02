@@ -45,7 +45,6 @@ function NavBar() {
 				</Typography>
 				<Tooltip title="About">
 					<Button onClick={handleClick} sx={{ color: '#FFFFFF' }}>
-						{/* About */}
 						<InfoOutlinedIcon />
 					</Button>
 				</Tooltip>
