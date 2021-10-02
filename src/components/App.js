@@ -6,7 +6,7 @@ import FileSaver from 'file-saver';
 import styled from '@mui/material/styles/styled';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import Alert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -14,7 +14,6 @@ import Tooltip from '@mui/material/Tooltip';
 import UploadIcon from '@mui/icons-material/Upload';
 import DownloadIcon from '@mui/icons-material/Download';
 
-// import NavBar from './NavBar';
 import BasicCard from './BasicCard';
 import Form from './Form';
 import DataTable from './DataTable';
@@ -478,7 +477,7 @@ function App() {
 					</Tooltip>
 				</Box>
 				{/* <Alert icon={false} severity="info" sx={{ m: 1, mb: 4 }}>
-					🚧 This site is under development.{' '}
+					🚧 This site is currently in alpha.{' '}
 					<a
 						style={{ color: '#1976D2' }}
 						href="mailto:610b145c-e385-48c8-bf7f-c4b9a2468b18@simplelogin.co?subject=Axie Scholar Tracker Bug"
