@@ -98,9 +98,9 @@ function AboutDialog(props) {
 							mt: 4,
 						}}
 					>
-						<Avatar src={profile} sx={{ mr: 1, height: 40, width: 40 }} />
+						<Avatar src={profile} sx={{ mr: 1, height: 35, width: 35 }} />
 						<Typography color="text.primary" sx={{ fontSize: 14 }}>
-							coded by{' '}
+							by{' '}
 							<a
 								style={{ textDecoration: 'none', color: '#1976D2' }}
 								href="https://www.facebook.com/xf606bZhSFYbORVF/"
