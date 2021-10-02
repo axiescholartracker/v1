@@ -100,9 +100,9 @@ function AboutDialog(props) {
 							by{' '}
 							<a
 								style={{ textDecoration: 'none', color: '#1976D2' }}
-								href="https://www.facebook.com/xf606bZhSFYbORVF/"
+								href="https://github.com/vlipatdev"
 							>
-								vlipat
+								vlipatdev
 							</a>{' '}
 							with ❤️
 						</Typography>
