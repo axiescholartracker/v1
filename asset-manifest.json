@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/v1/static/css/main.10dd0d47.chunk.css",
-    "main.js": "/v1/static/js/main.e3f90b7c.chunk.js",
+    "main.css": "/v1/static/css/main.78f5cbdc.chunk.css",
+    "main.js": "/v1/static/js/main.d107a574.chunk.js",
     "runtime-main.js": "/v1/static/js/runtime-main.f05b953d.js",
-    "static/js/2.c79ec2a4.chunk.js": "/v1/static/js/2.c79ec2a4.chunk.js",
+    "static/js/2.26e1ab49.chunk.js": "/v1/static/js/2.26e1ab49.chunk.js",
     "index.html": "/v1/index.html",
-    "static/js/2.c79ec2a4.chunk.js.LICENSE.txt": "/v1/static/js/2.c79ec2a4.chunk.js.LICENSE.txt",
+    "static/js/2.26e1ab49.chunk.js.LICENSE.txt": "/v1/static/js/2.26e1ab49.chunk.js.LICENSE.txt",
     "static/media/axie.4a5e0239.png": "/v1/static/media/axie.4a5e0239.png",
     "static/media/axie_logo.71812b0f.png": "/v1/static/media/axie_logo.71812b0f.png",
     "static/media/axs_logo.c5d7796b.png": "/v1/static/media/axs_logo.c5d7796b.png",
@@ -16,8 +16,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f05b953d.js",
-    "static/js/2.c79ec2a4.chunk.js",
-    "static/css/main.10dd0d47.chunk.css",
-    "static/js/main.e3f90b7c.chunk.js"
+    "static/js/2.26e1ab49.chunk.js",
+    "static/css/main.78f5cbdc.chunk.css",
+    "static/js/main.d107a574.chunk.js"
   ]
 }
