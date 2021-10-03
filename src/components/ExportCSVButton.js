@@ -1,8 +1,8 @@
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import DownloadIcon from '@mui/icons-material/Download';
+import Tooltip from '@mui/material/Tooltip';
 
-function ExportButton() {
+function ExportCSVButton() {
 	return (
 		<Tooltip title="Download data in .csv format">
 			<Button
@@ -18,4 +18,4 @@ function ExportButton() {
 	);
 }
 
-export default ExportButton;
+export default ExportCSVButton;
