@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 import SnackBar from './SnackBar';
 
-function Form(props) {
-	const { localData, onUpdate, scholars } = props;
+function ScholarPage(props) {
+	const scholarName = useParams().name;
+	const history = useHistory();
+
+	const { localData, onUpdate } = props;
 
 	const [open, setOpen] = useState(false);
 	const [profile, setProfile] = useState({
@@ -18,12 +23,27 @@ function Form(props) {
 	});
 	const [valid, setValid] = useState({
 		name: true,
-		ronin_address: true,
 		manager_share: true,
 		name_error_message: '',
-		ronin_error_message: '',
 		manager_error_message: '',
 	});
+
+	useEffect(() => {
+		document.body.style.cursor = 'default';
+		const scholarIndex = localData.findIndex((scholar) => scholar.name === scholarName);
+		if (localData.length > 0 && scholarIndex === -1) {
+			history.push('/');
+		}
+
+		const scholarProfile = localData.filter((scholar) => scholar.name === scholarName)[0];
+		if (scholarProfile !== undefined) {
+			setProfile({
+				name: scholarProfile.name,
+				ronin_address: scholarProfile.ronin_address,
+				manager_share: scholarProfile.manager_share,
+			});
+		}
+	}, [localData]);
 
 	function handleClose(_, reason) {
 		if (reason === 'clickaway') {
@@ -54,6 +74,12 @@ function Form(props) {
 						name: false,
 						name_error_message: 'Scholar name is required',
 					};
+				} else if (value === scholarName) {
+					return {
+						...prevValid,
+						name: true,
+						name_error_message: '',
+					};
 				} else {
 					const index = localData.findIndex(
 						(scholar) => scholar.name.toLowerCase() === value.toLowerCase()
@@ -71,39 +97,6 @@ function Form(props) {
 						name_error_message: '',
 					};
 				}
-			} else if (name === 'ronin_address') {
-				if (!value) {
-					return {
-						...prevValid,
-						ronin_address: false,
-						ronin_error_message: 'Ronin address is required',
-					};
-				} else {
-					const index = localData.findIndex(
-						(scholar) => scholar.ronin_address.toLowerCase() === value.toLowerCase()
-					);
-					if (index !== -1) {
-						return {
-							...prevValid,
-							ronin_address: false,
-							ronin_error_message: 'Ronin address already exists',
-						};
-					} else {
-						if (value.match(/^ronin:[a-zA-Z0-9]{40}$/)) {
-							return {
-								...prevValid,
-								ronin_address: true,
-								ronin_error_message: '',
-							};
-						} else {
-							return {
-								...prevValid,
-								ronin_address: false,
-								ronin_error_message: 'Invalid ronin address',
-							};
-						}
-					}
-				}
 			} else if (name === 'manager_share') {
 				if (!value) {
 					return {
@@ -119,7 +112,6 @@ function Form(props) {
 							manager_error_message: `Manager share must be 0 - 100`,
 						};
 					}
-
 					return {
 						...prevValid,
 						manager_share: true,
@@ -132,9 +124,13 @@ function Form(props) {
 
 	return (
 		<Box>
+			<Typography variant="h6" sx={{ mb: 4 }}>
+				Edit details for {scholarName}
+			</Typography>
 			<Grid container spacing={2} sx={{ mb: 6 }}>
-				<Grid item xs={12} sm={6} md={3}>
+				<Grid item xs={12}>
 					<TextField
+						autoFocus
 						fullWidth
 						error={!valid.name}
 						helperText={!valid.name && valid.name_error_message}
@@ -148,22 +144,8 @@ function Form(props) {
 						value={profile.name}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6} md={3}>
-					<TextField
-						fullWidth
-						error={!valid.ronin_address}
-						helperText={!valid.ronin_address && valid.ronin_error_message}
-						onChange={handleChange}
-						onBlur={handleBlur}
-						name="ronin_address"
-						id="ronin-address"
-						label="Ronin Address"
-						variant="outlined"
-						size="small"
-						value={profile.ronin_address}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6} md={3}>
+
+				<Grid item xs={12}>
 					<TextField
 						fullWidth
 						error={!valid.manager_share}
@@ -180,29 +162,47 @@ function Form(props) {
 						inputProps={{ min: 0, max: 100 }}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6} md={3}>
+				<Grid item xs={12}>
+					<TextField
+						fullWidth
+						name="ronin_address"
+						id="ronin-address"
+						label="Ronin Address"
+						variant="outlined"
+						size="small"
+						value={profile.ronin_address}
+						disabled
+					/>
+				</Grid>
+				<Grid item xs={6}>
+					<Button
+						fullWidth
+						onClick={() => {
+							history.goBack();
+						}}
+						size="medium"
+						variant="outlined"
+						disableElevation
+					>
+						Cancel
+					</Button>
+				</Grid>
+				<Grid item xs={6}>
 					<Button
 						fullWidth
 						onClick={() => {
 							if (
 								valid.name &&
-								valid.ronin_address &&
 								valid.manager_share &&
 								profile.name !== '' &&
-								profile.ronin_address !== '' &&
 								profile.manager_share !== ''
 							) {
-								if (scholars >= 100) {
-									alert('Only 100 scholars are allowed at the moment.');
-								} else {
-									onUpdate([...localData, profile], false);
-									setOpen(true);
-									setProfile({
-										name: '',
-										ronin_address: '',
-										manager_share: '',
-									});
-								}
+								onUpdate(
+									[...localData.filter((scholar) => scholar.name !== scholarName), profile],
+									false
+								);
+								// setOpen(true);
+								history.goBack();
 							} else {
 								// alert('Invalid form inputs');
 							}
@@ -212,13 +212,13 @@ function Form(props) {
 						variant="contained"
 						disableElevation
 					>
-						Add Scholar
+						Save
 					</Button>
 				</Grid>
 			</Grid>
-			<SnackBar onClose={handleClose} open={open} type="add" />
+			<SnackBar onClose={handleClose} open={open} type="update" />
 		</Box>
 	);
 }
 
-export default Form;
+export default ScholarPage;
