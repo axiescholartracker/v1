@@ -6,6 +6,7 @@ import FileSaver from 'file-saver';
 
 import styled from '@mui/material/styles/styled';
 
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -165,10 +166,11 @@ function App() {
 								rank: item.rank,
 							};
 						});
+
 						setData(finalData);
 					})
 					.catch(() => {
-						alert('Could not connect to server. Please try again later.');
+						alert('There seems to be a problem with Sky Mavis API. Please try again later.');
 					});
 			} else {
 				setData(data.filter((item) => addresses.includes(item.ronin_address)));
@@ -286,6 +288,9 @@ function App() {
 					</Route>
 					<Route exact path="/">
 						<CryptoBar data={cryptoData} currency={currency} />
+						<Alert sx={{ mb: 4 }} severity="info">
+							Only up to 100 scholars are supported at the moment.
+						</Alert>
 						<Grid
 							container
 							spacing={2}
