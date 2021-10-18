@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/v1/static/js/main.fb7df4d3.chunk.js",
+    "main.js": "/v1/static/js/main.c35a0d3b.chunk.js",
     "runtime-main.js": "/v1/static/js/runtime-main.f05b953d.js",
-    "static/js/2.ba1775e4.chunk.js": "/v1/static/js/2.ba1775e4.chunk.js",
+    "static/js/2.86a48ee6.chunk.js": "/v1/static/js/2.86a48ee6.chunk.js",
     "index.html": "/v1/index.html",
-    "static/js/2.ba1775e4.chunk.js.LICENSE.txt": "/v1/static/js/2.ba1775e4.chunk.js.LICENSE.txt",
+    "static/js/2.86a48ee6.chunk.js.LICENSE.txt": "/v1/static/js/2.86a48ee6.chunk.js.LICENSE.txt",
     "static/media/axie.5a8a2421.png": "/v1/static/media/axie.5a8a2421.png",
     "static/media/axs_logo.91ca37bc.png": "/v1/static/media/axs_logo.91ca37bc.png",
     "static/media/background.2ba53e5e.jpg": "/v1/static/media/background.2ba53e5e.jpg",
@@ -14,7 +14,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f05b953d.js",
-    "static/js/2.ba1775e4.chunk.js",
-    "static/js/main.fb7df4d3.chunk.js"
+    "static/js/2.86a48ee6.chunk.js",
+    "static/js/main.c35a0d3b.chunk.js"
   ]
 }
